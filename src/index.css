@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.b-sider-left{
+  border-right: 1px solid #dedede;
+}
+
+.ant-layout, .ant-layout-sider, .ant-layout-content, .ant-layout-header{
+  background: #fff;
+}
+
+.ant-layout-header{
+  border-bottom: 1px solid #dedede;
+}
+
+.b-buttom{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.b-buttom button{
+  margin-right: 3px;
+  border: 1px solid #000;
+  color: #000;
+  font-size: 11px;
+}
+
+.b-buttom--left{
+  text-align: left;
+  padding-left: 15px;
+  display: inline-block;
+  width: 50%;
+}
+.b-search{
+  display: inline-block;
+  width: 50%;
+}
+
+.b-search--right{
+  text-align: right;
+  padding-right: 15px;
+}
+
+.ant-layout.ant-layout-has-sider{
+  height: 89vh;
+}
+.b-tree{
+  padding-left: 10px;
+}
+
+.b-sider-right{
+  padding: 17px 10px 10px 16px;
+  border-left: 1px solid #dedede;
+}
+
+.b-sider-right textarea{
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+
+.b-leftInf, .b-rightInf{
+  display: inline-block;
+  width: 50%;
+}
+.b-rightInf{
+  text-align: left;
+}
+
+.wrapperInf{
+  margin-bottom: 10px;
+}
+
+.b-rightInf--center{
+  text-align: center;
+  width: 41%;
+}
+.wrapperInf li{
+  line-height: 26px;
+}
+.b-inf{
+  overflow: hidden;
+}
+.b-inf strong{
+  position: relative;
+  display: block;
+  font-size: 13px;
+}
+.b-inf strong:after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  background-color: #EBEBEB;
+  width: 89%;
+  margin-left: 15px;
+  top: 50%;
+}
+.b-btn--right{
+  float: right;
+}
+
