@@ -1,19 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+//import { connect } from 'react-redux'
+import Article from './Article'
+import { articles } from './fixtures'
 
-const user = {
-  name: 'Vlad',
-  firstName: 'Kalachev'
+const article = articles
+export default function App(){
+  
+  return <Article article={article} propsName={[1,2,3]} />
 }
 
-function nameUser(user){
-  return user.name + user.firstName
-}
-
-const namber = [1,2,4]
-
-function App(){
-  return <h1>Hello Wold :{user.firstName}</h1>
-}
-
-export default App;

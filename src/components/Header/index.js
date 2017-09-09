@@ -16,6 +16,7 @@ class Header extends Component {
       }
       toggle = (value) =>{
         console.log(value)
+        
         if(this.props.load == false){
           this.props.changeToggle(true)
         } else{
