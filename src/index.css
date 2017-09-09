@@ -16,6 +16,12 @@ body {
   border-bottom: 1px solid #dedede;
 }
 
+.visibel{
+  display: block;
+}
+.no-visibel{
+  display: none;
+}
 .b-buttom{
   text-align: center;
   margin-top: 20px;
