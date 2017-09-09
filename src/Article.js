@@ -14,14 +14,25 @@ export default class Artical extends Component {
         const { article } = this.props
         const articles = article[0]
         console.log(this.state)
-        const body = !this.state.isOpen ? (<div><h1>{articles.title}</h1><p>{articles.text}</p></div>) : null
+        // const body = !this.state.isOpen ? (<div><h1>{articles.title}</h1><p>{articles.text}</p></div>) : null
+        const styleToggle =({
+            toggle: 'block'
+        })
         const btnTitle = !this.state.isOpen ? 'Close' : 'Open'
+        if(!this.state.isOpen){
+            styleToggle.toggle = 'block'
+        }else{
+            styleToggle.toggle = 'none'
+        }
         return(
                 <div>
                     {/* <button onClick={this.onToggle.bind(this)} >{btnTitle}</button> */}
                     <button onClick={this.onToggle.bind(this)} >{btnTitle}</button>
-                    {body}
-                    
+                    {/* {body} */}
+                    <div style={{display: styleToggle.toggle}}>
+                        <h1>{articles.title}</h1>
+                        <p>{articles.text}</p>
+                    </div>
                 </div>
     )}
 
