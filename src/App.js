@@ -1,27 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Layout, Spin } from 'antd';
 
-import Header from './components/Header';
+const user = {
+  name: 'Vlad',
+  firstName: 'Kalachev'
+}
 
-import logo from './logo.svg';
-import './App.css';
+function nameUser(user){
+  return user.name + user.firstName
+}
 
-const { Footer, Sider, Content } = Layout;
+const namber = [1,2,4]
 
-class App extends Component {
-
-  render() {
-    const styleSider = { height: "100%", overflow: 'auto'};
-    return (
-
-        <Spin spinning={false} size="large" tip="Загрузка...">
-          <Layout>
-            <Header />
-          </Layout>
-        </Spin>
-      );
-  }
+function App(){
+  return <h1>Hello Wold :{user.firstName}</h1>
 }
 
 export default App;
