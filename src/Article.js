@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import ArticleList from './ArticleList'
 
 export default class Artical extends Component {
     
@@ -16,10 +16,11 @@ export default class Artical extends Component {
         const { isOpen } = this.state
 
         const btnTitle = !isOpen ? 'Open' : 'Close'
+
         return(
                 <div>
-                    <button onClick={this.onToggle} >{btnTitle}</button>
                     <h1>{article.title}</h1>
+                    <button onClick={this.onToggle} >{btnTitle}</button>
                     {this.getBody()}
                 </div>
     )}
