@@ -10,68 +10,36 @@ export default class Artical extends Component {
             isOpen: false
         }
     }
+
     render(){
         const { article } = this.props
-        const articles = article[0]
-        console.log(this.state)
-        // const body = !this.state.isOpen ? (<div><h1>{articles.title}</h1><p>{articles.text}</p></div>) : null
-        const styleToggle =({
-            toggle: 'block'
-        })
-        const btnTitle = !this.state.isOpen ? 'Close' : 'Open'
-        if(!this.state.isOpen){
-            styleToggle.toggle = 'block'
-        }else{
-            styleToggle.toggle = 'none'
-        }
+        const { isOpen } = this.state
+
+        const btnTitle = !isOpen ? 'Open' : 'Close'
         return(
                 <div>
-                    {/* <button onClick={this.onToggle.bind(this)} >{btnTitle}</button> */}
-                    <button onClick={this.onToggle.bind(this)} >{btnTitle}</button>
-                    {/* {body} */}
-                    <div style={{display: styleToggle.toggle}}>
-                        <h1>{articles.title}</h1>
-                        <p>{articles.text}</p>
-                    </div>
+                    <button onClick={this.onToggle} >{btnTitle}</button>
+                    <h1>{article.title}</h1>
+                    {this.getBody()}
                 </div>
     )}
 
-    onToggle(){
+    getBody(){
+        const { article } = this.props
+
+        if(!this.state.isOpen){
+            return null
+        } else {
+            return <p>{article.text}</p>
+        }
+    }
+
+    onToggle = () =>{
         this.setState({
             isOpen: !this.state.isOpen
         })
     } 
 
-    // onToggle (){
-    //     this.setState({
-    //         isOpen: !this.state.isOpen
-    //     })
-    // } 
 }
 
-// export default Article = () => {
-//     return (
-//         <div>
-//             <h1>Title</h1>
-//             <p>description</p>
-//         </div>
-//     )
-// }
 
-// export default function Artical(props){
-//     //console.log(props)
-//     const articles = props.article
-//     console.log(articles)
-//     return(
-//         <div>
-//             {articles.map((article, i)=>
-//                 <li key={i}>
-//                     {article.title}<br />
-//                     {article.text}<br />
-//                     {article.date}
-//                 </li>
-//             )}
-           
-//         </div>
-//     )
-// }

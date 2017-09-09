@@ -6,6 +6,6 @@ import { articles } from './fixtures'
 const article = articles
 export default function App(){
   
-  return <Article article={article} propsName={[1,2,3]} />
+  return <Article article={article[0]} propsName={[1,2,3]} />
 }
 
