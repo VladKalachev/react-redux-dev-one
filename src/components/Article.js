@@ -1,40 +1,40 @@
 import React, {Component} from 'react'
 import ArticleList from './ArticleList'
+import PropTypes from 'prop-types'
 import CommentList from './CommentList'
+import toggleOpen from './../decorators/toggleOpen'
 
-export default class Artical extends Component {
-    
+class Artical extends Component {
+
     constructor(props){
         super(props)
 
         this.state = {
-            isOpen: false,
             visibel : true
         }
     }
 
     render(){
-        const { article } = this.props
-        const { isOpen, isOpenComment, visibel } = this.state
+        const { article, isOpen, toggleOpen } = this.props
+  
+        const { visibel } = this.state
         
-
         const btnTitle = !isOpen ? 'Open' : 'Close'
         const hiddenClass = visibel ? 'visibel' : 'no-visibel'
   
         return(
                 <div className={hiddenClass}>
                     <h1>{article.title}</h1>
-                    <button onClick={this.onToggle} >{btnTitle}</button><br />
+                    <button onClick={toggleOpen} >{btnTitle}</button><br />
                     <button onClick={this.onDelete}>Удалить</button>
                     {this.getBody()}       
                 </div>
     )}
 
     getBody(){
-        
-        if(!this.state.isOpen) return null
+        const {article, isOpen} = this.props
+        if(!isOpen) return null
 
-        const {article} = this.props
         return (
                 <section>
                     {article.text}
@@ -49,12 +49,8 @@ export default class Artical extends Component {
             visibel: false
         })    
     }
-    onToggle = () =>{
-        this.setState({
-            isOpen: !this.state.isOpen
-        })
-    } 
+
 
 }
 
-
+export default toggleOpen(Artical)
