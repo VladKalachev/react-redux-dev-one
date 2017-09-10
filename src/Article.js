@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import ArticleList from './ArticleList'
-
+import Comment from './Comments' 
 
 export default class Artical extends Component {
     
@@ -9,17 +9,17 @@ export default class Artical extends Component {
 
         this.state = {
             isOpen: false,
-            visibel : true
+            visibel : true,
+            isOpenComment: false
         }
     }
 
     render(){
         const { article } = this.props
-        const { isOpen, visibel } = this.state
+        const { isOpen, isOpenComment, visibel } = this.state
+        console.log(isOpenComment)
 
         const btnTitle = !isOpen ? 'Open' : 'Close'
-    
-        console.log(this.state.visibel)
         const hiddenClass = visibel ? 'visibel' : 'no-visibel'
   
         return(
@@ -33,14 +33,29 @@ export default class Artical extends Component {
 
     getBody(){
         const { article } = this.props
-
+        const comments = article.comments
+        const listComment = !this.state.isOpenComment ? null : <Comment  comment={comments} />  
+        const btn = !this.state.isOpenComment ? 'Open Comment' : 'Close Comment'
+        
         if(!this.state.isOpen){
             return null
         } else {
-            return <p>{article.text}</p>
+            return (
+                <div>
+                    <p>{article.text}</p>
+
+                    {/* comment component */}
+                    <button onClick={this.openComment}>{btn}</button>
+                    {listComment} 
+                </div>
+            )
         }
     }
-
+    openComment = ()=>{
+        this.setState({
+            isOpenComment: !this.state.isOpenComment
+        })
+    }
     onDelete = () =>{
         this.setState({
             visibel: false
