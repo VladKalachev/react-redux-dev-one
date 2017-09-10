@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import ArticleList from './ArticleList'
-import Comment from './Comments' 
+import CommentList from './CommentList'
 
 export default class Artical extends Component {
     
@@ -9,8 +9,7 @@ export default class Artical extends Component {
 
         this.state = {
             isOpen: false,
-            visibel : true,
-            isOpenComment: false
+            visibel : true
         }
     }
 
@@ -27,35 +26,24 @@ export default class Artical extends Component {
                     <h1>{article.title}</h1>
                     <button onClick={this.onToggle} >{btnTitle}</button><br />
                     <button onClick={this.onDelete}>Удалить</button>
-                    {this.getBody()}
+                    {this.getBody()}       
                 </div>
     )}
 
     getBody(){
-        const { article } = this.props
-        const comments = article.comments
-        const listComment = !this.state.isOpenComment ? null : <Comment  comment={comments} />  
-        const btn = !this.state.isOpenComment ? 'Open Comment' : 'Close Comment'
         
-        if(!this.state.isOpen){
-            return null
-        } else {
-            return (
-                <div>
-                    <p>{article.text}</p>
+        if(!this.state.isOpen) return null
 
-                    {/* comment component */}
-                    <button onClick={this.openComment}>{btn}</button>
-                    {listComment} 
-                </div>
+        const {article} = this.props
+        return (
+                <section>
+                    {article.text}
+                    <CommentList comments={article.comments} />
+                </section>
             )
-        }
     }
-    openComment = ()=>{
-        this.setState({
-            isOpenComment: !this.state.isOpenComment
-        })
-    }
+    
+
     onDelete = () =>{
         this.setState({
             visibel: false
