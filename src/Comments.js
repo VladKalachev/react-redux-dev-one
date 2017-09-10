@@ -2,19 +2,17 @@ import React, {Component} from 'react'
 
 export default function Comment(props){
     const comments = props.comment
-    //console.log(comments)
-    const commetList = comments.map((comment) =>
-        <li key={comment.id}>{comment.user}</li>
+    
+    if(!comments || !comments.length) return <h1>Not comments</h1>
+    const commetList = comments.map((comment) =>{
+        return <li key={comment.id}>{comment.user}</li>  
+    })
+          
+
+    return (
+        <ul style={{ border: '1px solid red'}}>{commetList}</ul>
     )
-    if(comments == undefined){
-        return(
-            null
-        )
-    } else{
-        return (
-            <ul style={{ border: '1px solid red'}}>{commetList}</ul>
-        )
-    } 
+
 
     
 }

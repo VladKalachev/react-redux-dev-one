@@ -17,7 +17,7 @@ export default class Artical extends Component {
     render(){
         const { article } = this.props
         const { isOpen, isOpenComment, visibel } = this.state
-        console.log(isOpenComment)
+        
 
         const btnTitle = !isOpen ? 'Open' : 'Close'
         const hiddenClass = visibel ? 'visibel' : 'no-visibel'
