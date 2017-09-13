@@ -15,7 +15,7 @@ class Artical extends Component {
 
     render(){
         const { article, isOpen, toggleOpen } = this.props
-  
+        
         const { visibel } = this.state
         
         const btnTitle = !isOpen ? 'Open' : 'Close'
@@ -32,7 +32,7 @@ class Artical extends Component {
 
     setContainerRef = ref =>{
         this.container = ref
-        console.log('---', ref)
+       // console.log('---', ref)
     }
 
     getBody(){
