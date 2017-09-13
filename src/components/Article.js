@@ -47,13 +47,11 @@ class Artical extends Component {
             )
     }
     
-
     onDelete = () =>{
         this.setState({
             visibel: false
         })    
     }
-
 
 }
 
