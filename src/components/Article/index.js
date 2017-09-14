@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import CommentList from './CommentList'
-import toggleOpen from './../decorators/toggleOpen'
+import CommentList from './../CommentList'
+import toggleOpen from './../../decorators/toggleOpen'
 
 class Artical extends Component {
 
@@ -15,18 +15,18 @@ class Artical extends Component {
 
     render(){
         const { article, isOpen, toggleOpen } = this.props
-        
+
         const { visibel } = this.state
-        
+
         const btnTitle = !isOpen ? 'Open' : 'Close'
         const hiddenClass = visibel ? 'visibel' : 'no-visibel'
-  
+
         return(
                 <div className={hiddenClass} ref={this.setContainerRef}>
                     <h1>{article.title}</h1>
                     <button onClick={toggleOpen} >{btnTitle}</button><br />
                     <button onClick={this.onDelete}>Удалить</button>
-                    {this.getBody()}       
+                    {this.getBody()}
                 </div>
     )}
 
@@ -46,11 +46,11 @@ class Artical extends Component {
                 </section>
             )
     }
-    
+
     onDelete = () =>{
         this.setState({
             visibel: false
-        })    
+        })
     }
 
 }

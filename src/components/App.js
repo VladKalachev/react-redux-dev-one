@@ -13,13 +13,13 @@ import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
 class App extends Component{
-  
+
   state = {
     selection: null
   }
 
   render(){
-   
+
     const options = articles.map((article) =>({
       label: article.title,
       value: article.id
@@ -36,7 +36,7 @@ class App extends Component{
   }
 
   changeSelection = selection => this.setState({ selection })
-  
+
 }
 
 export default App
