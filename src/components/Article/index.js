@@ -7,26 +7,21 @@ class Artical extends Component {
 
     constructor(props){
         super(props)
-
-        this.state = {
-            visibel : true
-        }
     }
 
     render(){
         const { article, isOpen, toggleOpen } = this.props
 
-        const { visibel } = this.state
-
         const btnTitle = !isOpen ? 'Open' : 'Close'
-        const hiddenClass = visibel ? 'visibel' : 'no-visibel'
 
         return(
-                <div className={hiddenClass} ref={this.setContainerRef}>
+                <div ref={this.setContainerRef}>
                     <h1>{article.title}</h1>
                     <button onClick={toggleOpen} >{btnTitle}</button><br />
-                    <button onClick={this.onDelete}>Удалить</button>
-                    {this.getBody()}
+
+                  <button onClick={this.handelDelite}>Удалить</button>
+
+                  {this.getBody()}
                 </div>
     )}
 
@@ -47,10 +42,8 @@ class Artical extends Component {
             )
     }
 
-    onDelete = () =>{
-        this.setState({
-            visibel: false
-        })
+    handelDelite = () =>{
+        console.log('----', 'deletign')
     }
 
 }

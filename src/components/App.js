@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 //import { connect } from 'react-redux'
 import Article from './Article'
-import { articles } from './../fixtures'
 import ArticleList from './ArticleList'
 import UserForm from './UserForm'
 import Counter from './Counter'
@@ -16,32 +15,18 @@ import 'react-day-picker/lib/style.css';
 
 class App extends Component{
 
-  state = {
-    selection: null
-  }
-
 
   render(){
-
-    const options = articles.map((article) =>({
-      label: article.title,
-      value: article.id
-    }))
-
-
 
     return(
       <div>
         <Counter />
-        <Select options={options} multi value={this.state.selection} onChange={this.changeSelection}/>
         <UserForm />
         <DayPicker month={ new Date(2018, 8)} />
-        <ArticleList articles={articles} />
+        <ArticleList/>
       </div>
     )
   }
-
-  changeSelection = selection => this.setState({ selection })
 
 }
 

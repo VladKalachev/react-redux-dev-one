@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
 import Article from './Article'
 import accordion from './../decorators/accordion'
+import {connect} from 'react-redux'
 
 class ArticleList extends Component {
 
     render(){
         const { articles, openItemId, toggleOpenItem } = this.props
-        
-        const articleElements = articles.map(article => 
+
+        const articleElements = articles.map(article =>
              <li key={article.id}>
                 <Article
                     article = {article}
@@ -20,9 +21,11 @@ class ArticleList extends Component {
             <ul>
                 {articleElements}
             </ul>
-        ) 
+        )
     }
 
-    
+
 }
-export default accordion(ArticleList)
+export default connect(state => ({
+  articles: state.articles
+}))(accordion(ArticleList))
