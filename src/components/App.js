@@ -4,7 +4,7 @@ import Article from './Article'
 import { articles } from './../fixtures'
 import ArticleList from './ArticleList'
 import UserForm from './UserForm'
-
+import Counter from './Counter'
 
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
@@ -12,11 +12,14 @@ import 'react-select/dist/react-select.css'
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
+
+
 class App extends Component{
 
   state = {
     selection: null
   }
+
 
   render(){
 
@@ -25,8 +28,11 @@ class App extends Component{
       value: article.id
     }))
 
+
+
     return(
       <div>
+        <Counter />
         <Select options={options} multi value={this.state.selection} onChange={this.changeSelection}/>
         <UserForm />
         <DayPicker month={ new Date(2018, 8)} />

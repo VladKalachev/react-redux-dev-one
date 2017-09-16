@@ -16,9 +16,11 @@ class CommentForm extends Component {
                 user: <input value = {this.state.user}
                              onChange = {this.handleChange('user')}
                              className = {this.getClassName('user')} />
+
                 comment: <input value = {this.state.text}
                                 onChange = {this.handleChange('text')}
                                 className = {this.getClassName('text')} />
+
                 <input type = "submit" value = "submit"/>
             </form>
         )
