@@ -22,17 +22,29 @@ class Counter extends Component {
   handleIncrement = () =>{
     console.log('---', 'íncremetn')
     this.props.increment()
+    //this.props.dispatch(increment());
     // this.props.dispatch({
     //   type: "INCREMENT"
     // })
   }
 }
 
-function mapStateToProps(state) {
-  return{
-    counter: state.count
-  }
-}
-const decortor = connect(mapStateToProps, {increment})
 
-export default decortor(Counter);
+// const mapToDispatch = {
+//     dispatchIncrement: increment
+// }
+
+// const mapToDispatch = {increment}
+//
+// function mapStateToProps(state) {
+//   return{
+//     counter: state.count
+//   }
+// }
+// const decortor = connect(mapStateToProps, mapToDispatch )
+//
+// export default decortor(Counter);
+
+export default connect((state)=>({
+   counter: state.count
+}), {increment})(Counter)
