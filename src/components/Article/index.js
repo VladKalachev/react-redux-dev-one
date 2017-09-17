@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import CommentList from './../CommentList'
 import toggleOpen from './../../decorators/toggleOpen'
+import {connect} from 'react-redux'
+import {deleteArticle} from '../../AC'
 
 class Artical extends Component {
 
@@ -43,9 +45,11 @@ class Artical extends Component {
     }
 
     handelDelite = () =>{
+        const {deleteArticle, article} = this.props
+        deleteArticle(article.id)
         console.log('----', 'deletign')
     }
 
 }
 
-export default Artical
+export default connect(null, {deleteArticle})(Artical)

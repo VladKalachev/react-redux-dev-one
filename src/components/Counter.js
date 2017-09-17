@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropsTypes from 'prop-types'
 import {connect} from 'react-redux'
-import increment from '../AC'
+import {increment} from '../AC'
 
 class Counter extends Component {
 

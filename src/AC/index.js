@@ -1,5 +1,14 @@
-export default function increment(){
+import { INCREMENT, DELETE_ARTICLE } from '../constans'
+
+export function increment(){
   return {
-      type: 'INCREMENT'
+      type: INCREMENT
+  }
+}
+
+export function deleteArticle(id){
+  return {
+      type: DELETE_ARTICLE,
+      payload: { id }
   }
 }
