@@ -18,7 +18,7 @@ class App extends Component{
     return(
       <div>
         <Counter />
-        <Filters articles = {articles} />
+        <Filters />
         <ArticleList/>
       </div>
     )
